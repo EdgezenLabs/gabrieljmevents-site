@@ -2,32 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom tokens for inline use with Tailwind utility fallback */
+/* Custom tokens */
 :root {
   --accent: #b0402d;
   --accent2: #f0ebe6;
+  --muted: #6b7280;
+  --container-max: 64rem; /* equivalent to max-w-5xl */
 }
 
-/* Global base */
+/* Base layout */
 html, body {
   height: 100%;
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827; /* Tailwind text-gray-900 */
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make container utility available in plain markup */
-/* Avoid using @apply for max-w-5xl (some Tailwind versions/processing reject @apply for certain size utilities).
-   Set max-width directly to the same value Tailwind uses for max-w-5xl (64rem = 1024px) */
+/* Container helper (use in markup as class="container" if desired) */
 .container {
-  max-width: 64rem; /* equivalent to max-w-5xl */
+  max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* Card (used across page) */
+/* Card styling (equivalent to bg-white rounded-2xl shadow-sm) */
 .card {
-  @apply bg-white rounded-2xl shadow-sm;
+  background-color: #ffffff;
+  border-radius: 1rem; /* 16px */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 
-/* Hero specifics (header component uses these classes) */
+/* Hero specifics */
 .hero {
   position: relative;
   min-height: 56vh;
@@ -36,17 +47,26 @@ html, body {
   justify-content: center;
   overflow: hidden;
 }
+
+/* hero image absolute fill */
 .hero .hero-img {
-  @apply absolute inset-0 w-full h-full object-cover;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Overlay for hero text */
+/* hero content stacking */
 .hero .hero-content {
   z-index: 10;
   position: relative;
+  text-align: center;
+  color: white;
 }
 
-/* Subtle backdrop for hero content on smaller screens */
+/* small gradient overlay for mobile */
 @media (max-width: 900px) {
   .hero::after {
     content: "";
@@ -57,10 +77,18 @@ html, body {
   }
 }
 
-/* Improve gallery spacing and image aspect */
-figure img {
-  @apply w-full h-full object-cover;
-  aspect-ratio: 16/9;
+/* Image/flex helpers used in components */
+.figure-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gallery figcaption text */
+figure figcaption {
+  padding: 0.75rem; /* 12px */
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 /* Typographic niceties */
@@ -68,31 +96,28 @@ h1, h2, h3 {
   letter-spacing: 0.1px;
 }
 
+/* Lead helper */
 .lead {
-  @apply text-gray-600;
+  color: var(--muted);
 }
 
-/* Footer tweaks */
+/* Footer */
 .site-footer {
-  --tw-bg-opacity: 1;
-  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+  background-color: #111827; /* Tailwind gray-900 */
+  color: #d1d5db;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-/* Accessibility: focus outlines */
+/* Focus outlines accessible */
 a:focus, button:focus, input:focus, textarea:focus {
-  @apply outline-none ring-2 ring-[var(--accent)] ring-offset-2;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(176,64,45,0.18);
 }
 
 /* Mobile specific adjustments */
 @media (max-width: 640px) {
-  .card img {
-    @apply h-44;
-  }
-  .hero {
-    min-height: 48vh;
-  }
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  .hero { min-height: 48vh; }
+  .card img { height: 11rem; } /* 176px */
+  .container { padding-left: 1rem; padding-right: 1rem; }
 }
