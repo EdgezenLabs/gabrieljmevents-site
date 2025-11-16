@@ -1,5 +1,10 @@
+// tailwind.config.cjs
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{astro,html,js,ts,jsx,tsx}',
+    './src/**/*.css',
+    './public/**/*.html'
+  ],
   theme: {
     extend: {
       colors: {
