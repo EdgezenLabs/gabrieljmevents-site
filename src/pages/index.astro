@@ -1,165 +1,163 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ContactForm from '../components/ContactForm.astro';
-import '../styles/global.css'; // Import Tailwind + global styles
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gabriel JM Events — Event & Wedding Planner in Chennai</title>
-    <meta name="description" content="Gabriel JM Events — Weddings, corporate events & private celebrations in Chennai, Tamil Nadu. End-to-end planning and on-ground coordination." />
-    <meta name="theme-color" content="#b0402d" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Gabriel JM Events — Chennai" />
-    <meta property="og:description" content="Weddings, corporate & private events. End-to-end planning and execution." />
-    <meta property="og:image" content="https://gabrieljmevents.com/assets/hero.jpg" />
-    <meta property="og:type" content="website" />
-
-    <link rel="icon" href="/assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gabriel JM Events — Event Management in Chennai</title>
+    <link rel="stylesheet" href="/styles/global.css" />
   </head>
 
-  <body class="antialiased text-gray-900 bg-white">
-    <!-- Header / Hero -->
+  <body class="bg-white text-gray-900 flex flex-col min-h-screen">
+
+    <!-- Header -->
     <Header />
 
-    <!-- Main content -->
-    <main class="container mx-auto px-4 md:px-6 lg:px-8">
-      <!-- Services -->
-      <section id="services" class="mt-10 md:mt-14">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-2xl md:text-3xl font-semibold">Our Services</h2>
-          <p class="mt-3 text-gray-600">End-to-end planning, décor, vendor coordination, logistics and on-day management across Chennai &amp; Tamil Nadu.</p>
-        </div>
+    <!-- HERO SECTION -->
+    <section class="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
 
-        <div class="mt-8 grid gap-6 grid-cols-1 md:grid-cols-3">
-          <article class="card p-4 flex flex-col">
-            <img class="w-full h-44 object-cover rounded-md mb-4" src="/assets/wedding1.jpg" alt="Wedding planning Chennai" loading="lazy" />
-            <h3 class="font-semibold text-lg">Weddings</h3>
-            <p class="text-sm text-gray-600 mt-2 flex-1">Traditional South Indian weddings, modern destination weddings — venue sourcing, décor, catering and on-day coordination.</p>
-            <div class="mt-4">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-[var(--accent)] text-white text-sm">Enquire about weddings</a>
-            </div>
-          </article>
+      <picture>
+        <!-- Mobile -->
+        <source srcset="/assets/hero-mobile.webp" media="(max-width: 640px)" type="image/webp" />
+        <source srcset="/assets/hero-mobile.jpg" media="(max-width: 640px)" type="image/jpeg" />
 
-          <article class="card p-4 flex flex-col">
-            <img class="w-full h-44 object-cover rounded-md mb-4" src="/assets/corporate1.jpg" alt="Corporate events Chennai" loading="lazy" />
-            <h3 class="font-semibold text-lg">Corporate Events</h3>
-            <p class="text-sm text-gray-600 mt-2 flex-1">Product launches, conferences, employee meetups and gala dinners — A/V, staging & on-site logistics handled end-to-end.</p>
-            <div class="mt-4">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-[var(--accent)] text-white text-sm">Corporate enquiries</a>
-            </div>
-          </article>
+        <!-- Desktop -->
+        <source srcset="/assets/hero.webp" type="image/webp" />
+        <img
+          src="/assets/hero.jpg"
+          alt="Wedding decor at a Chennai venue"
+          class="w-full h-full object-cover"
+        />
+      </picture>
 
-          <article class="card p-4 flex flex-col">
-            <img class="w-full h-44 object-cover rounded-md mb-4" src="/assets/party1.jpg" alt="Private parties Chennai" loading="lazy" />
-            <h3 class="font-semibold text-lg">Private Parties</h3>
-            <p class="text-sm text-gray-600 mt-2 flex-1">Birthdays, anniversaries and themed parties — bespoke décor, entertainment and coordination so you can enjoy the day.</p>
-            <div class="mt-4">
-              <a href="#contact" class="inline-block px-4 py-2 rounded-md bg-[var(--accent)] text-white text-sm">Plan a party</a>
-            </div>
-          </article>
-        </div>
-      </section>
+      <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-white text-center drop-shadow-lg">
+          Premium Event Management in Chennai
+        </h1>
+      </div>
+    </section>
 
-      <!-- Why choose us -->
-      <section id="why" class="mt-14 md:mt-20">
-        <div class="bg-[var(--accent2)] rounded-2xl p-6 md:p-10">
-          <div class="md:flex md:items-center md:gap-8">
-            <div class="md:flex-1">
-              <h2 class="text-2xl md:text-3xl font-semibold">Why Gabriel JM Events?</h2>
-              <p class="mt-3 text-gray-700">Local knowledge of Chennai venues, trusted vendor relationships, and professional on-site execution — we keep things organized so you don't have to.</p>
-              <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-sm text-gray-700">
-                <li>• 100+ events planned</li>
-                <li>• Dedicated event managers</li>
-                <li>• Vendor negotiation & coordination</li>
-                <li>• Transparent pricing & timelines</li>
-              </ul>
-            </div>
+    <!-- ABOUT SECTION -->
+    <section class="max-w-5xl mx-auto px-5 py-12 md:py-16">
+      <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">About Us</h2>
+      <p class="text-lg text-gray-700 text-center max-w-3xl mx-auto">
+        Gabriel JM Events is your one-stop solution for weddings, receptions,
+        corporate events, parties, photography, catering, décor, and full wedding planning
+        across Chennai & Tamil Nadu. We make your event unforgettable with elegant, modern,
+        and traditional event designs.
+      </p>
+    </section>
 
-            <div class="mt-6 md:mt-0 md:w-80">
-              <div class="rounded-lg overflow-hidden shadow">
-                <img src="/assets/wedding1.jpg" alt="Wedding setup" class="w-full h-48 object-cover" loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- SERVICES SECTION -->
+    <section class="bg-gray-50 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto px-5">
+        <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
 
-      <!-- Portfolio -->
-      <section id="portfolio" class="mt-14 md:mt-20">
-        <div class="text-center">
-          <h2 class="text-2xl md:text-3xl font-semibold">Portfolio</h2>
-          <p class="mt-3 text-gray-600">A selection of recent events we planned and executed in Chennai.</p>
-        </div>
-
-        <div class="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <figure class="rounded-xl overflow-hidden bg-white shadow">
-            <img src="/assets/wedding1.jpg" alt="Wedding decor" class="w-full h-56 object-cover" loading="lazy" />
-            <figcaption class="p-3 text-sm text-gray-500">Traditional wedding — Green Lawns, Chennai — 300 guests</figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden bg-white shadow">
-            <img src="/assets/corporate1.jpg" alt="Corporate stage" class="w-full h-56 object-cover" loading="lazy" />
-            <figcaption class="p-3 text-sm text-gray-500">Product launch — Chennai Trade Center</figcaption>
-          </figure>
-
-          <figure class="rounded-xl overflow-hidden bg-white shadow">
-            <img src="/assets/party1.jpg" alt="Birthday party" class="w-full h-56 object-cover" loading="lazy" />
-            <figcaption class="p-3 text-sm text-gray-500">Themed birthday party — Private Villa</figcaption>
-          </figure>
-        </div>
-
-        <p class="text-center text-sm text-gray-500 mt-4">Want to see the full portfolio? <a href="#contact" class="text-[var(--accent)] font-medium">Get in touch</a>.</p>
-      </section>
-
-      <!-- Testimonials -->
-      <section id="testimonials" class="mt-14 md:mt-20">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-2xl md:text-3xl font-semibold">What Clients Say</h2>
-          <div class="mt-6 space-y-4">
-            <blockquote class="p-6 bg-white rounded-2xl shadow italic text-gray-700">“Gabriel JM Events made our wedding day effortless — everything went perfectly.” — S &amp; V, Chennai</blockquote>
-            <blockquote class="p-6 bg-white rounded-2xl shadow italic text-gray-700">“Professional, punctual and creative. Highly recommended for corporate events.” — R. Srinivasan</blockquote>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact + Info -->
-      <section id="contact" class="mt-14 md:mt-20 mb-16 grid gap-8 grid-cols-1 lg:grid-cols-2">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Contact Us</h2>
-          <p class="mt-3 text-gray-600">Tell us about your event — date, estimated guests and venue (if known). We’ll reply within 24 hours.</p>
-
-          <div class="mt-6">
-            <ContactForm />
-          </div>
-        </div>
-
-        <aside class="space-y-4">
-          <div class="card p-4">
-            <h3 class="font-semibold">Gabriel JM Events</h3>
-            <p class="text-sm text-gray-600 mt-2">Chennai, Tamil Nadu, India</p>
-            <p class="text-sm text-gray-600 mt-1">Phone / WhatsApp: <a href="tel:+91-XXXXXXXXXX" class="text-[var(--accent)]">+91-XXXXXXXXXX</a></p>
-            <p class="text-sm text-gray-600 mt-1">Email: <a href="mailto:info@gabrieljmevents.com" class="text-[var(--accent)]">info@gabrieljmevents.com</a></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Wedding Planning</h3>
+            <p class="text-gray-600">Complete end-to-end wedding stage décor, mandap setup, bridal makeup, and venue decorations.</p>
           </div>
 
-          <div class="card p-4">
-            <h4 class="font-semibold">Working Hours</h4>
-            <p class="text-sm text-gray-600 mt-2">Mon – Sat: 09:00 — 18:00</p>
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Corporate Events</h3>
+            <p class="text-gray-600">Professional conference staging, product launch setups, LED backdrops, and event coordination.</p>
           </div>
 
-          <div class="card p-4">
-            <h4 class="font-semibold">Find us</h4>
-            <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="text-[var(--accent)]">Open in Google Maps</a>
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Parties & Celebrations</h3>
+            <p class="text-gray-600">Birthdays, baby showers, anniversaries with premium themes & balloon décor.</p>
           </div>
-        </aside>
-      </section>
-    </main>
 
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Photography & Videography</h3>
+            <p class="text-gray-600">Candid and cinematic shoots for all events.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Catering Services</h3>
+            <p class="text-gray-600">Delicious multi-cuisine catering with live counters.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">Venue Arrangements</h3>
+            <p class="text-gray-600">Venue booking, stage setup, lighting, flooring & sound systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+      <h2 class="text-3xl font-bold text-center mb-10">Our Portfolio</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Wedding 1 -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <picture>
+            <source srcset="/assets/wedding1.webp" type="image/webp" />
+            <img src="/assets/wedding1.jpg" alt="Traditional wedding mandap décor" class="w-full h-56 object-cover" />
+          </picture>
+        </div>
+
+        <!-- Wedding 2 -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <img src="/assets/wedding2.jpg" alt="Elegant floral wedding stage" class="w-full h-56 object-cover" />
+        </div>
+
+        <!-- Corporate -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <picture>
+            <source srcset="/assets/corporate1.webp" type="image/webp" />
+            <img src="/assets/corporate1.jpg" alt="Corporate conference event setup" class="w-full h-56 object-cover" />
+          </picture>
+        </div>
+
+        <!-- Party -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <picture>
+            <source srcset="/assets/party1.webp" type="image/webp" />
+            <img src="/assets/party1.jpg" alt="Party celebration venue with lighting and décor" class="w-full h-56 object-cover" />
+          </picture>
+        </div>
+
+        <!-- Venue 1 -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <picture>
+            <source srcset="/assets/venue1.webp" type="image/webp" />
+            <img src="/assets/venue1.jpg" alt="Chennai indoor event venue" class="w-full h-56 object-cover" />
+          </picture>
+        </div>
+
+        <!-- Venue 2 -->
+        <div class="rounded-xl overflow-hidden shadow">
+          <picture>
+            <source srcset="/assets/venue2.webp" type="image/webp" />
+            <img src="/assets/venue2.jpg" alt="Outdoor event venue with lighting" class="w-full h-56 object-cover" />
+          </picture>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="bg-gray-900 text-white py-12 md:py-16">
+      <div class="max-w-5xl mx-auto px-5 text-center">
+        <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+
+        <p class="text-lg">Gabriel JM Event Management</p>
+        <p class="mt-2">📞 +91 95661 44155</p>
+        <p>📍 No. 14/5, Hindu Colony, 2nd Main Road, Puzhuthivakkam, Chennai – 600091</p>
+        <p class="mt-2">✉️ gabrieljmcaterers@gmail.com</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <Footer />
+
   </body>
 </html>
