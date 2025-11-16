@@ -18,19 +18,12 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Build and prepare site for GitHub Pages
-        # This action will install dependencies, run the build and upload the output 
-        # for the deploy job. It is the official Astro action.
+      - name: Build and prepare site for GitHub Pages (Astro)
+        # Use the official Astro action to install, build and prepare artifacts
         uses: withastro/action@v5
-        with:
-          # Optional inputs (uncomment & edit if you want to override):
-          # path: .                   # path to your Astro project (default root)
-          # node-version: 22          # Node version to use (default 22)
-          # package-manager: npm      # npm, pnpm, yarn, bun, deno. Auto-detected by lockfile by default
-          # build-cmd: npm run build  # override build command if needed
 
   deploy:
     name: Deploy to GitHub Pages
@@ -38,8 +31,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      # The url will be set by the deployment step below
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
