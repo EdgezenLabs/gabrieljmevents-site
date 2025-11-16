@@ -2,44 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global */
+/* Custom tokens for inline use with Tailwind utility fallback */
 :root {
   --accent: #b0402d;
-  --muted: #6b7280;
+  --accent2: #f0ebe6;
 }
 
-body {
-  @apply bg-white text-gray-900 antialiased;
-  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+/* Global base */
+html, body {
+  height: 100%;
 }
 
-/* container */
+/* Make container utility available in plain markup */
 .container {
-  @apply max-w-4xl mx-auto px-6 py-8;
+  @apply max-w-5xl mx-auto;
 }
 
-/* hero */
+/* Card (used across page) */
+.card {
+  @apply bg-white rounded-2xl shadow-sm;
+}
+
+/* Hero specifics (header component uses these classes) */
 .hero {
-  @apply relative min-h-[60vh] flex items-center justify-center overflow-hidden;
+  position: relative;
+  min-height: 56vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.hero::after {
-  content: "";
-  @apply absolute inset-0 bg-gradient-to-b from-black/30 to-black/10;
-  pointer-events: none;
-}
-.hero-img {
+.hero .hero-img {
   @apply absolute inset-0 w-full h-full object-cover;
 }
-.hero-content {
-  @apply relative z-10 text-center text-white;
+
+/* Overlay for hero text */
+.hero .hero-content {
+  z-index: 10;
+  position: relative;
 }
 
-/* cards */
-.card {
-  @apply bg-white rounded-2xl shadow p-4;
+/* subtle backdrop for hero content on smaller screens */
+@media (max-width: 900px) {
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+    z-index: 5;
+  }
 }
 
-/* simple footer */
+/* Improve gallery spacing and image aspect */
+figure img {
+  @apply w-full h-full object-cover;
+  aspect-ratio: 16/9;
+}
+
+/* Typographic niceties */
+h1, h2, h3 {
+  letter-spacing: 0.1px;
+}
+
+.lead {
+  @apply text-gray-600;
+}
+
+/* Footer tweaks */
 .site-footer {
-  @apply bg-gray-900 text-gray-300 py-8;
+  --tw-bg-opacity: 1;
+  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+}
+
+/* Accessibility: focus outlines */
+a:focus, button:focus, input:focus, textarea:focus {
+  @apply outline-none ring-2 ring-[var(--accent)] ring-offset-2;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 640px) {
+  .card img {
+    @apply h-44;
+  }
+  .hero {
+    min-height: 48vh;
+  }
+  .container {
+    @apply px-4;
+  }
 }
